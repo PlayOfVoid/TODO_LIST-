@@ -42,7 +42,7 @@
                         <!-- <p class="text-muted">Задачи выполнены не добавлены.</p> -->
                         
                         {%for task in done_tasks%}
-                        <h3>{{task.name}}</h3>
+                        <a href="{%url 'tasks:detail_task' task.id%}"><h3>{{task.name}}</h3></a>
                         {%endfor%}
                     
                     </div>
@@ -56,7 +56,7 @@
                         <!-- Здесь будут отображаться невыполненные задачи -->
                         <!-- <p class="text-muted">Задачи не добавлены.</p> -->
                         {%for task in undone_tasks%}
-                        <h3>{{task.name}}</h3>
+                        <a href="{%url 'tasks:detail_task' task.id%}"><h3>{{task.name}}</h3></a>
                         {%endfor%}
                     </div>
                 </div>

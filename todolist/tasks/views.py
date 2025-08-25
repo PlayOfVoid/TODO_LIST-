@@ -36,3 +36,12 @@ def task_is_done(request,task_id):
 
    
     
+def detail_task(request,task_id):
+
+    task = get_object_or_404(Task,pk=task_id)
+    context = {
+        'task':task
+    }
+
+
+    return render(request,"tasks/detail_task.html",context)

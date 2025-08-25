@@ -21,7 +21,6 @@ def login_view(request):
         print(request.POST)
         form = UserLoginForm(request,request.POST)
         if form.is_valid():
-            print("Login is good form")
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user = auth.authenticate(request, username=username, password=password)
@@ -33,7 +32,7 @@ def login_view(request):
             else:
                 form.add_error(None, "Неверное имя пользователя или пароль")
         else:
-            print(form.errors,"form is not good")
+            print(form.errors)
     else:
         form = UserLoginForm()
     return render(request, 'users/login.html', {'form': form})
@@ -46,9 +45,7 @@ def logout_view(request):
 def profile(request):
     if request.method == "POST":
         form = AddTask(request.POST)
-        print("Я в посте!!!")
         if form.is_valid():
-            print("Форма ннооорм")
             task = form.save(commit=False)
             task.user = request.user
             task.save()

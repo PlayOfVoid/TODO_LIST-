@@ -28,7 +28,9 @@
                             {{ form.non_field_errors }}
                         </div>
                     {% endif %}
-                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    <br><a href="{% url 'users:register' %}" class="btn btn-success">Регистрация</a></br>
+                    <br></br>
+                    <button type="submit" class="btn btn-primary w-100">Войти</button>
                 </form>
             </div>
         </div>
